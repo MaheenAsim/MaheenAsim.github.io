@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Maheen Asim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a2332;
+            --secondary: #6b7280;
+            --accent: #b45309;
+            --background: #f4f3e1;
+            --text: #374151;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text);
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .contact-card {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.1);
+        }
+        
+        .collaboration-interest {
+            background: linear-gradient(135deg, var(--accent), #92400e);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .collaboration-interest:hover {
+            transform: scale(1.02);
+        }
+        
+        .social-link {
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-2px);
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="font-display font-semibold text-xl text-primary">
+                    <a href="index.html">Maheen Asim</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-primary">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-primary">About</a>
+                    <a href="research.html" class="nav-link text-gray-700 hover:text-primary">Research</a>
+                    <a href="contact.html" class="nav-link text-primary font-semibold">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-primary to-gray-800 text-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="font-display text-5xl lg:text-6xl font-bold mb-6">Let's Connect</h1>
+                <p class="text-xl lg:text-2xl mb-8 max-w-4xl mx-auto opacity-90">
+                    Open to research collaborations, graduate program opportunities, and discussions about 
+                    machine learning, data science, and ethical AI development.
+                </p>
+            </div>
+        </div>
+    </section>
+<!--Emojis-->
+<!-- Animated Icon Cluster -->
+<div class="relative flex flex-wrap justify-center gap-10 my-16 text-4xl text-gray-700">
+    <div class="animate-bounce">🤖</div>
+    <div class="animate-spin-slow">📊</div>
+    <div class="animate-float">🧠</div>
+    <div class="animate-wiggle">⚙️</div>
+    <div class="animate-pulse">📈</div>
+    <div class="animate-float-delay">🔬</div>
+    <div class="animate-bounce">💡</div>
+    <div class="animate-wiggle-delay">🧮</div>
+  </div>
+  
+  <!-- Add these custom animations -->
+  <style>
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float-delay {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+  .animate-float-delay {
+    animation: float-delay 4s ease-in-out infinite;
+  }
+  
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+  .animate-wiggle {
+    animation: wiggle 2.5s ease-in-out infinite;
+  }
+  
+  @keyframes wiggle-delay {
+    0%, 100% { transform: rotate(3deg); }
+    50% { transform: rotate(-3deg); }
+  }
+  .animate-wiggle-delay {
+    animation: wiggle-delay 3s ease-in-out infinite;
+  }
+  </style>
+  
+      
+    <!-- Collaboration Interests -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-black mb-6">Collaboration Interests</h2>
+                <p class="text-xl text-black max-w-3xl mx-auto">
+                    Areas where I'm actively seeking research partnerships and academic collaboration
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="collaboration-interest scroll-reveal">
+                    <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3">Machine Learning Research</h3>
+                    <p class="text-sm opacity-90">Advanced ML algorithms, neural networks, and deep learning applications</p>
+                </div>
+                
+                <div class="collaboration-interest scroll-reveal">
+                    <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3">NLP & Text Analytics</h3>
+                    <p class="text-sm opacity-90">Large language models, sentiment analysis, and document processing</p>
+                </div>
+                
+                <div class="collaboration-interest scroll-reveal">
+                    <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3">Statistical Modeling</h3>
+                    <p class="text-sm opacity-90">Advanced statistical methods, Bayesian inference, and experimental design</p>
+                </div>
+                
+                <div class="collaboration-interest scroll-reveal">
+                    <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3">AI Ethics & Policy</h3>
+                    <p class="text-sm opacity-90">Responsible AI development, privacy protection, and ethical frameworks</p>
+                </div>
+                
+                <div class="collaboration-interest scroll-reveal">
+                    <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3">Healthcare Analytics</h3>
+                    <p class="text-sm opacity-90">Medical data analysis, clinical decision support, and health informatics</p>
+                </div>
+                
+                <div class="collaboration-interest scroll-reveal">
+                    <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3">Sustainable Technology</h3>
+                    <p class="text-sm opacity-90">Energy analytics, environmental data science, and green computing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Contact Methods -->
+                <div class="lg:col-span-2">
+                    <div class="scroll-reveal mb-12">
+                        <h2 class="font-display text-4xl font-bold text-primary mb-6">Get In Touch</h2>
+                        <p class="text-xl text-gray-600 mb-8">
+                            Whether you're interested in research collaboration, graduate program discussions, 
+                            or exploring opportunities in machine learning and data science, I'd love to hear from you.
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="contact-card bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-display text-xl font-semibold text-primary">Email</h3>
+                            </div>
+                            <p class="text-gray-600 mb-3">Primary contact for academic and professional inquiries</p>
+                            <a href="mailto:asimmaheen24@gmail.com" class="text-accent hover:text-yellow-700 font-semibold">
+                                asimmaheen24@gmail.com
+                            </a>
+                        </div>
+                        
+                        <div class="contact-card bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-display text-xl font-semibold text-primary">LinkedIn</h3>
+                            </div>
+                            <p class="text-gray-600 mb-3">Professional network and academic profile</p>
+                            <a href="https://linkedin.com/in/maheen-asim" class="text-accent hover:text-yellow-700 font-semibold">
+                                linkedin.com/in/maheen-asim
+                            </a>
+                        </div>
+                        
+                        <div class="contact-card bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-display text-xl font-semibold text-primary">GitHub</h3>
+                            </div>
+                            <p class="text-gray-600 mb-3">Research code and project repositories</p>
+                            <a href="https://github.com/maheen-asim" class="text-accent hover:text-yellow-700 font-semibold">
+                                github.com/maheen-asim
+                            </a>
+                        </div>
+                        
+                        <div class="contact-card bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-display text-xl font-semibold text-primary">Location</h3>
+                            </div>
+                            <p class="text-gray-600 mb-3">Currently based in Minnesota, USA</p>
+                            <span class="text-accent font-semibold">
+                                Minnesota, United States 55414
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="scroll-reveal">
+                    <div class="bg-gradient-to-br from-accent to-yellow-600 rounded-2xl p-8 text-black mb-8">
+                        <h3 class="font-display text-2xl font-bold mb-6">Quick Response</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span>Email Response Time</span>
+                                <span class="font-semibold">&lt; 24 hours</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>Meeting Availability</span>
+                                <span class="font-semibold">Flexible</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>Time Zone</span>
+                                <span class="font-semibold">CST (UTC-6)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="font-display text-xl font-semibold mb-4 text-primary">Best Time to Reach</h3>
+                        <div class="space-y-2 text-gray-600">
+                            <p><strong>Weekdays:</strong> 9:00 AM - 6:00 PM CST</p>
+                            <p><strong>Weekends:</strong> By appointment</p>
+                            <p><strong>Virtual Meetings:</strong> Preferred</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">Send a Message</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Have a specific question or proposal? Use the form below to get in touch directly.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="organization" class="block text-sm font-semibold text-gray-700 mb-2">Organization/Institution</label>
+                        <input type="text" id="organization" name="organization" 
+                               class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">Subject *</label>
+                        <select id="subject" name="subject" required 
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
+                            <option value="">Select a topic</option>
+                            <option value="research-collaboration">Research Collaboration</option>
+                            <option value="graduate-programs">Graduate Program Inquiry</option>
+                            <option value="internship-opportunities">Internship Opportunities</option>
+                            <option value="academic-mentorship">Academic Mentorship</option>
+                            <option value="conference-speaking">Conference Speaking</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message *</label>
+                        <textarea id="message" name="message" rows="6" required 
+                                  placeholder="Please provide details about your inquiry, research interests, or collaboration ideas..."
+                                  class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none resize-none"></textarea>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input type="checkbox" id="privacy" name="privacy" required 
+                               class="w-4 h-4 text-accent border-gray-300 rounded focus:ring-accent">
+                        <label for="privacy" class="ml-2 text-sm text-gray-600">
+                            I agree to the privacy policy and understand that this information will be used solely for communication purposes.
+                        </label>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" 
+                                class="bg-accent hover:bg-yellow-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+                
+                <div id="form-success" class="hidden mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                    <p class="font-semibold">Thank you for your message!</p>
+                    <p>I'll get back to you within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Academic Networking -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">Academic Networking</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Connect with me on various academic and professional platforms
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center scroll-reveal">
+                    <a href="https://linkedin.com/in/maheen-asim" class="social-link block">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-display text-lg font-semibold mb-2 text-primary">LinkedIn</h3>
+                        <p class="text-gray-600 text-sm">Professional network and academic achievements</p>
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center scroll-reveal">
+                    <a href="https://github.com/maheen-asim" class="social-link block">
+                        <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-display text-lg font-semibold mb-2 text-primary">GitHub</h3>
+                        <p class="text-gray-600 text-sm">Research code and project repositories</p>
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center scroll-reveal">
+                    <a href="mailto:asimmaheen24@gmail.com" class="social-link block">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-display text-lg font-semibold mb-2 text-primary">Email</h3>
+                        <p class="text-gray-600 text-sm">Direct academic communication</p>
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center scroll-reveal">
+                    <a href="https://scholar.google.com" class="social-link block">
+                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-display text-lg font-semibold mb-2 text-primary">Google Scholar</h3>
+                        <p class="text-gray-600 text-sm">Academic publications and citations</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="font-display text-2xl font-semibold mb-4">Maheen Asim</div>
+                <p class="text-gray-400 mb-6">Machine Learning Researcher & Graduate Candidate</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="mailto:asimmaheen24@gmail.com" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/maheen-asim" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/maheen-asim" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="text-gray-500 text-sm">
+                    © 2024 Maheen Asim. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Contact page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            initScrollReveal();
+            initContactForm();
+            initCollaborationCards();
+        });
+
+        // Scroll reveal animation
+        function initScrollReveal() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Contact form handling
+        function initContactForm() {
+            const form = document.getElementById('contact-form');
+            const successMessage = document.getElementById('form-success');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulate form submission
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                
+                submitButton.textContent = 'Sending...';
+                submitButton.disabled = true;
+                
+                setTimeout(() => {
+                    form.style.display = 'none';
+                    successMessage.classList.remove('hidden');
+                    
+                    // Animate success message
+                    anime({
+                        targets: successMessage,
+                        opacity: [0, 1],
+                        translateY: [20, 0],
+                        duration: 500,
+                        easing: 'easeOutQuad'
+                    });
+                }, 1500);
+            });
+        }
+
+        // Collaboration cards animation
+        function initCollaborationCards() {
+            const cards = document.querySelectorAll('.collaboration-interest');
+            
+            cards.forEach((card, index) => {
+                card.addEventListener('mouseenter', function() {
+                    anime({
+                        targets: this,
+                        scale: 1.02,
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    anime({
+                        targets: this,
+                        scale: 1,
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            });
+        }
+
+        // Contact card animations
+        const contactCards = document.querySelectorAll('.contact-card');
+        contactCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                anime({
+                    targets: this,
+                    translateY: -4,
+                    boxShadow: '0 10px 25px -3px rgba(0, 0, 0, 0.1)',
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                anime({
+                    targets: this,
+                    translateY: 0,
+                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+        });
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>

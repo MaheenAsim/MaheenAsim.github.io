@@ -1,0 +1,12 @@
+/* =====  NEW FANCY STYLES  ===== */
+body{ background:linear-gradient(135deg,#9ea6af 0%,#1b263b 100%); color:#edf2f4; }
+#particles{ position:fixed; inset:0; z-index:-1; }
+.blob{ animation:morph 8s ease-in-out infinite; }
+@keyframes morph{
+  0%,100%{ border-radius:50% 30% 70% 30%/60% 40% 60% 40%; }
+  50%{ border-radius:30% 60% 40% 70%/50% 70% 30% 50%; }
+}
+#typed{ border-right:2px solid #b771dc; padding-right:4px; animation:blink .7s infinite; }
+@keyframes blink{ 50%{border-color:transparent;} }
+.glow{ transition:transform .3s,color .3s; }
+.glow:hover{ transform:scale(1.15); color:#00b4d8; }

@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Maheen Asim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a2332;
+            --secondary: #6b7280;
+            --accent: #b45309;
+            --background: #f4f3e1 ;
+            --text: #374151;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text);
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .timeline {
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 1rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .achievement-card {
+            transition: all 0.3s ease;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .leadership-badge {
+            background: linear-gradient(135deg, var(--accent), #92400e);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 0.25rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .leadership-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .tech-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .tech-glow {
+            box-shadow: 0 0 20px rgba(18, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 1rem;
+            }
+            
+            .timeline-item::before {
+                left: 1rem;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 3rem);
+                margin-left: 3rem !important;
+                margin-right: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="font-display font-semibold text-xl text-primary">
+                    <a href="index.html">Maheen Asim</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-primary">Home</a>
+                    <a href="about.html" class="nav-link text-primary font-semibold">About</a>
+                    <a href="research.html" class="nav-link text-gray-700 hover:text-primary">Research</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-primary">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+
+
+<section class="pt-24 pb-12 relative overflow-hidden text-black">
+    <!-- particle canvas -->
+    <canvas id="particles" class="fixed inset-0 -z-10"></canvas>
+  
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- text -->
+        <div>
+          <h1 class="font-display text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            Hi, I'm <span class="text-black">Maheen</span>.<br>
+            <span id="typed" class="text-2xl lg:text-3xl font-light"></span>
+          </h1>
+          <p class="text-lg mb-8 leading-relaxed opacity-90">
+            I craft intelligent, adaptive systems that fuse
+            <strong>Industrial Engineering</strong> with
+            <strong>Machine Learning</strong> to advance manufacturing, healthcare & sustainability.
+          </p>
+          <div class="flex gap-4">
+            <a href="mailto:asimmaheen24@gmail.com" class="glow text-white text-2xl"><i class="fas fa-envelope"></i></a>
+            <a target="_blank" href="https://linkedin.com/in/maheen-asim" class="glow text-white text-2xl"><i class="fab fa-linkedin"></i></a>
+            <a target="_blank" href="https://github.com/maheen-asim" class="glow text-white text-2xl"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+  
+        <!-- blob photo -->
+        <div class="flex justify-center">
+          <div class="blob w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full grid place-items-center">
+            <img src="resources/headshot.png" alt="Maheen" class="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Research Statement -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">Research Vision & Academic Goals</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+                    Pursuing a Ph.D. in Machine Learning, Computer Science, or Industrial Systems Engineering to advance research in intelligent, data-driven systems and optimization
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white rounded-xl p-8 shadow-lg scroll-reveal">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-4 text-primary text-center">Intelligent Systems</h3>
+                    <p class="text-gray-600 text-center">
+                        Advancing research in intelligent, data-driven systems that can adapt, learn, and optimize complex industrial and organizational processes.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg scroll-reveal">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-4 text-primary text-center">Academic Bridge</h3>
+                    <p class="text-gray-600 text-center">
+                        Bridging the gap between applied analytics and theoretical innovation through rigorous research methodology and practical implementation.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg scroll-reveal">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-4 text-primary text-center">Ethical AI</h3>
+                    <p class="text-gray-600 text-center">
+                        Creating scalable, ethical, and impactful AI systems that serve society while preserving privacy, dignity, and social responsibility.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
+                <h3 class="font-display text-2xl font-semibold mb-6 text-primary text-center">Long-term Vision</h3>
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        My long-term goal is to contribute as both a data scientist and academic researcher, combining research, teaching, and real-world application. I aspire to create a synergistic relationship between theoretical advancement and practical implementation, where each informs and enhances the other.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold text-primary mb-3">Academic Contributions</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <span class="text-accent mr-2">•</span>
+                                    Advance fundamental research in machine learning and optimization
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-accent mr-2">•</span>
+                                    Develop novel algorithms for intelligent, adaptive systems
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-accent mr-2">•</span>
+                                    Mentor the next generation of data scientists and researchers
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-primary mb-3">Industry Impact</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <span class="text-accent mr-2">•</span>
+                                    Translate research into scalable, practical solutions
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-accent mr-2">•</span>
+                                    Bridge academic research with industry challenges
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-accent mr-2">•</span>
+                                    Drive innovation in data-driven decision making
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Activities -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">Leadership & Activities</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Building community and fostering collaboration through leadership roles and academic engagement
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-semibold text-primary">ASA Student Chapter</h3>
+                            <p class="text-sm text-gray-600">President</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-3">Leading the American Statistical Association student chapter, organizing events and fostering statistical literacy among students.</p>
+                    <span class="text-accent font-semibold text-sm">2024-2025</span>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-semibold text-primary">Statistics & Data Science Club</h3>
+                            <p class="text-sm text-gray-600">President</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-3">Leading initiatives to promote data science education and create networking opportunities for students interested in analytics.</p>
+                    <span class="text-accent font-semibold text-sm">2024-2025</span>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-semibold text-primary">Connect for Success</h3>
+                            <p class="text-sm text-gray-600">Peer Mentor</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-3">Mentoring fellow students in their academic journey, providing guidance on coursework, research opportunities, and career planning.</p>
+                    <span class="text-accent font-semibold text-sm">2024-2025</span>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-6 0h6"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-semibold text-primary">Residence Life</h3>
+                            <p class="text-sm text-gray-600">Senior Hall Coordinator</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-3">Managing day-to-day operations and leading a team of resident advisors for 600+ students, ensuring effective project execution.</p>
+                    <span class="text-accent font-semibold text-sm">2023-2024</span>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-semibold text-primary">St. Olaf Honor Council</h3>
+                            <p class="text-sm text-gray-600">Member</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-3">Upholding academic integrity and ethical standards within the college community through policy development and case review.</p>
+                    <span class="text-accent font-semibold text-sm">2023-2024</span>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-semibold text-primary">Linux Ladies Club</h3>
+                            <p class="text-sm text-gray-600">Program Coordinator</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-3">Coordinating programs to promote women in technology, organizing workshops and creating inclusive learning environments.</p>
+                    <span class="text-accent font-semibold text-sm">2022-2023</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Research Focus -->
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">Future Research Focus</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+                    Key research themes and questions that will guide my doctoral studies and future academic career
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8 scroll-reveal">
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="font-display text-xl font-semibold mb-4 text-primary">Machine Learning & Optimization</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                How can we develop more efficient optimization algorithms for large-scale industrial systems?
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                What are the theoretical foundations for adaptive learning in dynamic environments?
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                How can machine learning improve decision-making in complex organizational structures?
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="font-display text-xl font-semibold mb-4 text-primary">Industrial Systems Engineering</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                How can data-driven approaches optimize supply chain resilience and efficiency?
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                What role can AI play in sustainable manufacturing and energy systems?
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                How do we design intelligent systems that adapt to changing industrial demands?
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="space-y-8 scroll-reveal">
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="font-display text-xl font-semibold mb-4 text-primary">Education & Technology</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                How can AI enhance personalized learning experiences at scale?
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                What are the ethical implications of AI in educational decision-making?
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                How can we build inclusive AI systems that serve diverse learning needs?
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="font-display text-xl font-semibold mb-4 text-primary">Data Science & Analytics</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                How can we ensure fairness and transparency in algorithmic decision-making?
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                What are the best practices for integrating domain knowledge into ML models?
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">•</span>
+                                How can we develop more interpretable and explainable AI systems?
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center scroll-reveal">
+                <div class="bg-white rounded-xl p-8 shadow-lg max-w-4xl mx-auto">
+                    <h3 class="font-display text-2xl font-semibold mb-6 text-primary">Research Methodology</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        My research approach combines rigorous theoretical foundations with practical applications, ensuring that theoretical advances translate into real-world impact. I believe in interdisciplinary collaboration, working at the intersection of computer science, statistics, engineering, and social sciences to address complex challenges.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">Theoretical Rigor</span>
+                        <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold">Practical Application</span>
+                        <span class="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold">Interdisciplinary Collaboration</span>
+                        <span class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-semibold">Ethical Considerations</span>
+                        <span class="px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-semibold">Social Impact</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">Academic Timeline</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Key milestones in my educational journey from international scholar to machine learning researcher
+                </p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">2020</span>
+                            <h3 class="font-display text-xl font-semibold ml-4 text-primary">UWC Dilijan Graduation</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">Completed International Baccalaureate Diploma with UWC Shelby Davis Scholarship, establishing foundation for international academic pursuit.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">IB Diploma</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">UWC Scholar</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">2021</span>
+                            <h3 class="font-display text-xl font-semibold ml-4 text-primary">St. Olaf College - First Year</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">Began Computer Science major with Statistics & Data Science and Management Studies minors. Started financial assistant role.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded text-xs">CS Major</span>
+                            <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs">Finance Assistant</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">2022</span>
+                            <h3 class="font-display text-xl font-semibold ml-4 text-primary">Technology & Digital Scholarship</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">Served as Technology Consulting Assistant and Digital Scholarship Intern, developing expertise in IT automation and multimedia design.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">IT Support</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">Digital Media</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">2023</span>
+                            <h3 class="font-display text-xl font-semibold ml-4 text-primary">Leadership & Research Excellence</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">Elected President of American Statistical Association and Statistics & Data Science Club. Attended Grace Hopper Conference and won Hack the Gap 3rd Prize.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-red-100 text-red-800 rounded text-xs">ASA President</span>
+                            <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded text-xs">Hackathon Winner</span>
+                            <span class="px-2 py-1 bg-orange-100 text-orange-800 rounded text-xs">GHC 2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">2024</span>
+                            <h3 class="font-display text-xl font-semibold ml-4 text-primary">Research & Industry Experience</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">Completed multiple internships at BMC Software, Mayo Clinic, and Target Corporation. Presented at NCUR 2024 and conducted research in Norway.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">ML Engineer</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">UX Research</span>
+                            <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs">Data Analytics</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">2025</span>
+                            <h3 class="font-display text-xl font-semibold ml-4 text-primary">Graduation & Future</h3>
+                        </div>
+                        <p class="text-gray-600 mb-3">Completing Bachelor of Arts in Computer Science with 4.00 final semester GPA. Preparing for graduate studies in Machine Learning and Data Science.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">Graduation</span>
+                            <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded text-xs">Graduate Studies</span>
+                            <span class="px-2 py-1 bg-red-100 text-red-800 rounded text-xs">4.00 GPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Awards -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">Leadership & Recognition</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Academic excellence, leadership development, and community engagement through various roles and achievements
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="achievement-card bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3 text-primary text-center">ASA Student Chapter President</h3>
+                    <p class="text-gray-600 text-center mb-4">Led the American Statistical Association student chapter, organizing events and fostering statistical literacy among students.</p>
+                    <div class="text-center">
+                        <span class="text-accent font-semibold">2023-2024</span>
+                    </div>
+                </div>
+                
+                <div class="achievement-card bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3 text-primary text-center">Distinguished Service Award</h3>
+                    <p class="text-gray-600 text-center mb-4">Recognized for exceptional leadership during a year without a Senior Area Coordinator, managing 600+ students.</p>
+                    <div class="text-center">
+                        <span class="text-accent font-semibold">2023-2024</span>
+                    </div>
+                </div>
+                
+                <div class="achievement-card bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3 text-primary text-center">Innovation Scholar</h3>
+                    <p class="text-gray-600 text-center mb-4">Selected as Norway Innovation Scholar for exceptional research contributions and international collaboration.</p>
+                    <div class="text-center">
+                        <span class="text-accent font-semibold">2024</span>
+                    </div>
+                </div>
+                
+                <div class="achievement-card bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3 text-primary text-center">Hack the Gap 3rd Prize</h3>
+                    <p class="text-gray-600 text-center mb-4">Built mobile app prototype demonstrating innovative solution for gender gap challenges in technology.</p>
+                    <div class="text-center">
+                        <span class="text-accent font-semibold">2023-2024</span>
+                    </div>
+                </div>
+                
+                <div class="achievement-card bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3 text-primary text-center">Academic Excellence</h3>
+                    <p class="text-gray-600 text-center mb-4">Six-time Dean's Honor List recipient with consistent academic performance and leadership recognition.</p>
+                    <div class="text-center">
+                        <span class="text-accent font-semibold">2021-2024</span>
+                    </div>
+                </div>
+                
+                <div class="achievement-card bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3 text-primary text-center">Global Perspective</h3>
+                    <p class="text-gray-600 text-center mb-4">International experience through UWC experience, IB education and research collaboration across multiple countries and cultures.</p>
+                    <div class="text-center">
+                        <span class="text-accent font-semibold">2018-2020</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 scroll-reveal">
+                <h3 class="font-display text-2xl font-semibold mb-6 text-primary">Leadership Positions</h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <div class="leadership-badge">ASA Student Chapter President</div>
+                    <div class="leadership-badge">Statistics & Data Science Club President</div>
+                    <div class="leadership-badge">Senior Hall Coordinator</div>
+                    <div class="leadership-badge">Peer Mentor</div>
+                    <div class="leadership-badge">Honor Council Member</div>
+                    <div class="leadership-badge">Linux Ladies Coordinator</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Expertise -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">Technical Expertise</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive skill set developed through academic coursework, research projects, and industry experience
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <h3 class="font-display text-xl font-semibold mb-4 text-primary text-center">Programming Languages</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Python</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">R</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">SQL</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Java</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <h3 class="font-display text-xl font-semibold mb-4 text-primary text-center">Machine Learning</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Scikit-learn</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">TensorFlow</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">PyTorch</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">LangChain</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <h3 class="font-display text-xl font-semibold mb-4 text-primary text-center">Data Tools</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Power BI</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Tableau</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Excel</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Google Analytics</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <h3 class="font-display text-xl font-semibold mb-4 text-primary text-center">Cloud & DevOps</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">AWS</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Google Cloud</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Git/GitHub</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Docker</span>
+                            <div class="w-24 bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">Certifications & Training</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Professional certifications and specialized training in project management, data analytics, and AI development
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-semibold text-primary">CAPM</h3>
+                            <p class="text-sm text-gray-600">Certified Associate in Project Management</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-3">Professional project management certification demonstrating expertise in project planning, execution, and leadership.</p>
+                    <span class="text-accent font-semibold text-sm">2025</span>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-semibold text-primary">AWS Data Analytics</h3>
+                            <p class="text-sm text-gray-600">edX Certification</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-3">Comprehensive training in AWS data analytics services, big data processing, and cloud-based analytical solutions.</p>
+                    <span class="text-accent font-semibold text-sm">2024</span>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-semibold text-primary">Agile Development</h3>
+                            <p class="text-sm text-gray-600">PMI Certification</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-3">Professional training in Agile methodologies and Scrum framework for software development project management.</p>
+                    <span class="text-accent font-semibold text-sm">2024</span>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-semibold text-primary">SEO Foundations</h3>
+                            <p class="text-sm text-gray-600">LinkedIn Learning</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-3">Comprehensive training in search engine optimization strategies and digital marketing analytics.</p>
+                    <span class="text-accent font-semibold text-sm">2024</span>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-semibold text-primary">Agentic AI</h3>
+                            <p class="text-sm text-gray-600">Advanced AI Architecture</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-3">Advanced training in agentic AI architectures, frameworks, and applications for autonomous systems.</p>
+                    <span class="text-accent font-semibold text-sm">2025</span>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg scroll-reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-semibold text-primary">Cloud DevOps</h3>
+                            <p class="text-sm text-gray-600">Google Cloud Tools</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-3">Specialized training in Google Cloud Developer and DevOps tools for cloud-native application development.</p>
+                    <span class="text-accent font-semibold text-sm">2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-primary text-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">Ready for the Next Chapter</h2>
+                <p class="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+                    Seeking graduate opportunities in Machine Learning, Industrial Engineering and Data Science to continue advancing research 
+                    frontiers while contributing to ethical AI development and academic excellence.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="research.html" class="border-2 border-white text-black hover:bg-white hover:text-primary px-8 py-3 rounded-lg font-semibold transition-colors">
+                        View Research Work
+                    </a>
+                    <a href="contact.html" class="border-2 border-white text-black hover:bg-white hover:text-primary px-8 py-3 rounded-lg font-semibold transition-colors">
+                        Academic Collaboration
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="font-display text-2xl font-semibold mb-4">Maheen Asim</div>
+                <p class="text-gray-400 mb-6">Machine Learning Researcher & Graduate Candidate</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="mailto:asimmaheen24@gmail.com" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/maheen-asim" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/maheen-asim" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="text-gray-500 text-sm">
+                    © 2024 Maheen Asim. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // About page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            initScrollReveal();
+            initTimelineAnimations();
+            initAchievementCards();
+        });
+
+        // Scroll reveal animation
+        function initScrollReveal() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Timeline animations
+        function initTimelineAnimations() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: entry.target.querySelector('.timeline-content'),
+                            opacity: [0, 1],
+                            translateX: entry.target.classList.contains('timeline-item') && 
+                                       Array.from(timelineItems).indexOf(entry.target) % 2 === 0 ? [50, 0] : [-50, 0],
+                            duration: 800,
+                            easing: 'easeOutQuad',
+                            delay: 200
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+        }
+
+        // Achievement card animations
+        function initAchievementCards() {
+            const cards = document.querySelectorAll('.achievement-card');
+            
+            cards.forEach((card, index) => {
+                card.addEventListener('mouseenter', function() {
+                    anime({
+                        targets: this,
+                        scale: 1.02,
+                        translateY: -8,
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    anime({
+                        targets: this,
+                        scale: 1,
+                        translateY: 0,
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            });
+        }
+
+        // Leadership badge animations
+        function animateLeadershipBadges() {
+            const badges = document.querySelectorAll('.leadership-badge');
+            
+            badges.forEach((badge, index) => {
+                anime({
+                    targets: badge,
+                    scale: [0, 1],
+                    opacity: [0, 1],
+                    duration: 500,
+                    delay: index * 100,
+                    easing: 'easeOutBack'
+                });
+            });
+        }
+
+        // Trigger leadership badge animation when section comes into view
+        const leadershipSection = document.querySelector('.leadership-badge');
+        if (leadershipSection) {
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateLeadershipBadges();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            observer.observe(leadershipSection.parentElement);
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
